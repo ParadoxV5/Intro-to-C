@@ -27,6 +27,6 @@ const uint64_t HEX = UINT64_C(0xFEDCBA9876543210);
 int main() {
   printf("%"PRIi64, HEX); // String literal concatenation: "Hello"", " "World""!" => "Hello, World!"
   printf(
-    "\nintmax_t\t%" PRIiPTR "\t%" PRIiMAX "\t%" PRIiMAX "\t%" PRIuMAX,
+    "\nintmax_t\t%" PRIuPTR "\t%" PRIiMAX "\t%" PRIiMAX "\t%" PRIuMAX,
            sizeof(intmax_t),   INTMAX_MIN,   INTMAX_MAX,  UINTMAX_MAX);
 }
