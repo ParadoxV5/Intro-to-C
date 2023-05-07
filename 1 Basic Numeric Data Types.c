@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include <limits.h> // Max and mins for each basic numeric types, which are platform-dependent size
+#include <limits.h> // Max. and min.s for each basic numeric types, which are platform-dependent size
 int main() {
   
   puts("\nsizeof()\n");
@@ -43,12 +43,13 @@ int main() {
       "\nLiterals test\nhex=%i\toct=%i\tl=%li\ttau=%f\tsci=%f\tbpt=%f\n",
       hex,    oct,    l,     tau,    sci,    bpt
   );
-  // `l`/`L` and `ll`/`LL` suffixes can also mark a number `long` and `long long` respectively.
+  // `l`/`L` and `ll`/`LL` suffixes also mark a literal `long` and `long long` respectively,
+  //   specifically for numbers above `U`/`INT_MAX` or more precise than `double`.
   // The hex `0x`, hexadecimal and exponentiation letters are all case-insensitive.
 
   // `printf` is generally consistent with Java and Ruby. Special ones noted below:
             int   i = -50;
-            int   d =  50; // d and i are equivalent
+            int   d =  50; // `d` is equivalent to `i` for the `printf` family. 
    unsigned int   u = -50; // u  = unsigned [note no i]; note the implicit underflow (-5 => INT_MAX - 4)
       short int  hi = -50; // h  = short (int) [“half”]
        long int  li = -50; // l  = long (int)
