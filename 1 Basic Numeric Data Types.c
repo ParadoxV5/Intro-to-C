@@ -3,15 +3,15 @@
 int main() {
   
   puts("\nsizeof()\n");
-  // `sizeof(…)` returns an `unsigned long int`
-  printf(      "short\t%lu\n", sizeof(     short ));
-  printf(        "int\t%lu\n", sizeof(     int   ));
-  printf(       "long\t%lu\n", sizeof(     long  ));
-  printf(  "long long\t%lu\n", sizeof(long long  ));
-  printf(      "float\t%lu\n", sizeof(     float ));
-  printf(     "double\t%lu\n", sizeof(     double));
-  printf("long double\t%lu\n", sizeof(long double));
-  printf(       "char\t%lu\n", sizeof(     char  ));
+  // `sizeof(…)` returns an `size_t`, whose size is also platform-dependent 
+  printf(      "short\t%llu\n", sizeof(     short ));
+  printf(        "int\t%llu\n", sizeof(     int   ));
+  printf(       "long\t%llu\n", sizeof(     long  ));
+  printf(  "long long\t%llu\n", sizeof(long long  ));
+  printf(      "float\t%llu\n", sizeof(     float ));
+  printf(     "double\t%llu\n", sizeof(     double));
+  printf("long double\t%llu\n", sizeof(long double));
+  printf(       "char\t%llu\n", sizeof(     char  ));
   // The word `int` is optional in integer types (except `int` itself ofc)
   
   puts("\nmin/max\n");
