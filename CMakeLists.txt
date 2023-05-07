@@ -4,3 +4,4 @@ set(CMAKE_C_STANDARD 99)
 
 add_executable(0 "0 Hello World.c")
 add_executable(1 "1 Basic Numeric Data Types.c")
+add_executable(2 "2 Aliasing.c")
