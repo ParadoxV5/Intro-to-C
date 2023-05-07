@@ -37,15 +37,18 @@ int main() {
       /* Notes for `malloc`:
         * It *does not* initialize the memory to all 0s (“zero it”).
           * Since it’s not required in many use cases
+          * Though the memory might happen to be all 0s already.
           * The sibling `calloc(num, size)`, which allocates `num × size` bytes for arrays, does.
         * It (and the other `alloc` functions) returns the special `NULL` pointer upon failure (e.g., out of memory)
           * Special treatment could be done; I skipped them here to let the program error in segfault on its own.
         * There are no specifications on what comes out when trying to `alloc` 0 bytes of memory.
       */
+      printf("%"PRIiMAX"\n", *age); // Prints whatever value was previously in this memory space
+      
       printf("Enter your name:\t");
       scanf("%s", name);
       printf("Enter your age:\t");
-      scanf("%"SCNiMAX, age);
+      scanf("%"SCNiMAX, age); // Note: pass by pointer
       printf("Your name is %s and your age is %"PRIiMAX"\n", name, *age);
         // Strings are actually pointers to `char` sequences; more on them *soon*
       // Also: `realloc(ptr, new_size)`:
