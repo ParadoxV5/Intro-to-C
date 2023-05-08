@@ -46,7 +46,7 @@ int main() {
       printf("%"PRIiMAX"\n", *age); // Prints whatever value was previously in this memory space
       
       printf("Enter your name:\t");
-      scanf("%s", name);
+      fgets(name, 100, stdin);
       printf("Enter your age:\t");
       scanf("%"SCNiMAX, age); // Note: pass by pointer
       printf("Your name is %s and your age is %"PRIiMAX"\n", name, *age);
