@@ -12,7 +12,7 @@ int main() { /* Main function */
   /*return 0;*/ /* implicit `return 0` **for `main` function only** */
 }
 
-/* More on libraries, functions, arrays and Strings later. */
+/* More on libraries, functions, arrays and strings later. */
 
 // Oh yeah of course C has `//` for single-line comments.
 // But C99 and newer only! Only `/*…*/` in Standard C!
