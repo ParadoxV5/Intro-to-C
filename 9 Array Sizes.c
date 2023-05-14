@@ -21,4 +21,20 @@ int main() {
       //*((*table)+i)
     ); 
   puts("]"); //=> [ 8 7 6 5 4 3 2 1 0 ]
+  
+  // Sub-indexing and Endianness
+  // (C has the union type for better sub-indexing – near end of intro)
+  uint32_t abgr = 0x1234567;
+  void* p = &abgr; // forgets what type it’s pointing at
+  uint8_t* ptr = p; // and be told that it points to uint8_t
+  printf("\nbefore:\t");
+  for(int i = 0; i < /* 32/8 */ 4; ++i) {
+    printf("%"PRIX8"\t", ptr[i]);
+    ptr[i] += i * 0x11 + 0x8;
+  }
+  //=> Little-endian (most CPUs):  67 45 23 1
+  //=> Big-endian (network order): 1 23 45 67
+  printf("\nafter:\t%"PRIX32"\n", abgr);
+  //=> Little-endian (most CPUs): 3C4D5E6F
+  //=> Big-endian (network order): 93C6FA2
 }
