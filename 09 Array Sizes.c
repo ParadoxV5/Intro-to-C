@@ -27,9 +27,9 @@ int main() {
   uint32_t abgr = 0x1234567;
   void* p = &abgr; // forgets what type it’s pointing at
   uint8_t* ptr = p; // and be told that it points to uint8_t
-  printf("\nbefore:\t");
+  printf("\nbefore:");
   for(int i = 0; i < /* 32/8 */ 4; ++i) {
-    printf("%"PRIX8"\t", ptr[i]);
+    printf("\t%"PRIX8, ptr[i]);
     ptr[i] += i * 0x11 + 0x8;
   }
   //=> Little-endian (most CPUs):  67 45 23 1
