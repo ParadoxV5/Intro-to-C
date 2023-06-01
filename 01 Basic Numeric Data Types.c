@@ -4,6 +4,7 @@ int main() {
   
   puts("\nsizeof()\n");
   // `sizeof(…)` returns an `size_t`, whose size is also platform-dependent 
+  // `ssize_t` is signed version of `size_t` which is unsigned
   printf(      "short\t%llu\n", sizeof(     short ));
   printf(        "int\t%llu\n", sizeof(     int   ));
   printf(       "long\t%llu\n", sizeof(     long  ));
@@ -19,7 +20,7 @@ int main() {
   printf("          int  \t%i  \t%i  \t%u  \n",   INT_MIN,   INT_MAX,   UINT_MAX);
   printf("          long \t%li \t%li \t%lu \n",  LONG_MIN,  LONG_MAX,  ULONG_MAX);
   printf("     long long \t%lli\t%lli\t%llu\n", LLONG_MIN, LLONG_MAX, ULLONG_MAX);
-  // `char`s are actually a façade of codepoint integers, y’know, and are sometimes used as bytes
+  // `char`s *and char literals* are actually a façade of codepoint integers, y’know, and are sometimes used as bytes
   // `char` is the only one that does not have a `signed`/`unsigned` default defined
   printf("un/signed char \t%hhi\t%hhi\t%hhu\n", SCHAR_MIN, SCHAR_MAX,  UCHAR_MAX);
   printf("          char \t%hi \t%hi\t     \n",  CHAR_MIN,  CHAR_MAX);
