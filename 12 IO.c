@@ -1,43 +1,61 @@
+#include <inttypes.h>
+#include <string.h> // for `strchr`
+
 // “Std. IO” library
 #include <stdio.h>
 
-// Caution: ones that specify a length does not discard chars that exceed length
+#define STRATEGY(title) puts("\n"title);
 
 int main() {
   char string[12]; // 10 + 1 enter key char ('\n') + 1 for the null terminator
   
   #if __STDC_VERSION__ < 201100 // C11 removed `gets`
-    // Simple IO //
+    STRATEGY("Simple IO")
     // Deprecated: zero protection against array overflow
     gets(string);
-    string[10] = '\0';
+    string[10] = '\0'; // Chop `string` off at length 10
     puts(string);
     // `gets` removes the '\n'; `puts` adds a '\n'
-    putchar('\n'); // also: getchar(); not `putc`/`getc`
   #endif
   
-  // Formatted //
-  scanf("%10s", string); // Read a max-10-length string
-  printf("%-10s\n", string);
-  #if __STDC_VERSION__ >= 201100 // New in C11
-    scanf_s("%s", string, 10); // `scanf_s` take two args for `%s`
-    printf_s("%s\n", string); // with error detection not covered here
-  #endif
-  // `scanf` and `scanf_s` keep the '\n'
+  STRATEGY("Char by char")
+  char c = '\0'; // Initialize to something not '\n'
+  // Read until '\n'
+  for(int_fast8_t i = 0; c != '\n'; ++i) {
+    c = (char)getchar(); // returns is signed int to accommodate EOF (which is -1 in some platforms)
+    if(i < 10)  // Only store until 10 length
+      string[i] = c;
+  }
+  // Write until '\0'
+  char* c_p = string;
+  do {
+    c = *c_p;
+    putchar(c);
+    ++c_p;
+  } while(c != '\0');
+    // Or use for loop with index to stop after 10 length
+  putchar('\n');
+  // Not `getc`/`putc`!
   
-  // Specific IO stream //
-  // also: `stderr`
+  // Only the above strategies discard the '\n' and any chars before it that exceed length
+  #define FLUSH while(getchar() != '\n');
+  
+  STRATEGY("Specific IO stream")
   fgets(string, 12, stdin); // Recommended alternative to `gets`
+  if(!strchr(string, '\n')) // if '\n' not in `string`
+    FLUSH // `fgets` does not discard chars that exceed length
+  string[10] = '\0'; // `fgets` keeps the '\n'
   fputs(string, stdout);
-  // `fgets` keeps the '\n'
   fputc('\n', stdout); // also: fgetc(FILE*)
+  // also: `stderr`
   
-  // Formatted, Specific IO stream //
+  STRATEGY("Formatted")
+  scanf("%10s", string); // Read a max-10-length string
+  FLUSH // `scanf` does not take the '\n' nor any chars that exceed length
+  printf("%s\n", string); // Or `%-10s` to chop off at 10 length
+
+  STRATEGY("Formatted, Specific IO stream")
   fscanf(stdin, "%10s", string); // Read a max-10-length string
-  fprintf(stdout, "%-10s\n", string);
-  #if __STDC_VERSION__ >= 201100 // New in C11
-    fscanf_s(stdin, "%s", string, 10); // `fscanf_s` is like `scanf_s`
-    fprintf_s(stdout, "%s\n", string); // with error detection not covered here
-  #endif
-  // `fscanf` and `fscanf` keep the '\n'
+  FLUSH // neither does `fscanf`
+  fprintf(stdout, "%-10s\n", string); // ditto
 }

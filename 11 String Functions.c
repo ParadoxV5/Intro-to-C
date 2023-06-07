@@ -44,7 +44,7 @@ int main() {
   *strchr(last_name, '\n') = '\0'; // ditto
   /* Also:
     * memchr(str, c, n)
-    * strrchr(str, c): Search in reverse direction for last occurence
+    * strrchr(str, c): Search for last occurrence
     * strpbrk(str, str2): Search any char in second string
     * strstr(haystack, needle): Search an entire substring
     * strspn(str, str2): Count length of prefix made of only chars in second string
@@ -68,8 +68,6 @@ int main() {
     * strncpy(dest, src, src_size)
     * memcpy(dest, src, src_size)
     * memmove(dest, src, src_size): Overlap-safe version of `memcpy`
-    * strcpy_s(dest, dest_size, src)
-    * strncpy_s(dest, dest_size, src, src_size)
   */
   
   // `ctype.h` demo
@@ -84,8 +82,6 @@ int main() {
   printf("Full name:\t%s\n", full_name);
   /* Also:
     * strncat(dest, src, src_size)
-    * strcat_s(dest, dest_size, src)
-    * strncat_s(dest, dest_size, src, src_size)
   */
   
   // Length
@@ -94,9 +90,6 @@ int main() {
     strlen(full_name),
     sizeof(full_name) - 1
   );
-  /* Also:
-    * strnlen_s(str, str_size): Returns 0 for `NULL` `str` and `str_size` for unterminated `str`
-  */
   
   // Split by Separator
   const char delim[] = " "; // Not a substring separator – split by any char in delim array
