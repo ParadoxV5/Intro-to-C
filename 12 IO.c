@@ -1,3 +1,5 @@
+// Caution: Check for EOF and other errors not included in this example.
+
 #include <inttypes.h>
 #include <string.h> // for `strchr`
 

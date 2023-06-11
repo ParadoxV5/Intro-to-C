@@ -8,7 +8,7 @@ int main() {
   printf(      "short\t%llu\n", sizeof(     short ));
   printf(        "int\t%llu\n", sizeof(     int   ));
   printf(       "long\t%llu\n", sizeof(     long  ));
-  printf(  "long long\t%llu\n", sizeof(long long  ));
+  printf(  "long long\t%llu\n", sizeof(long long  )); // New in C99
   printf(      "float\t%llu\n", sizeof(     float ));
   printf(     "double\t%llu\n", sizeof(     double));
   printf("long double\t%llu\n", sizeof(long double));
@@ -55,7 +55,7 @@ int main() {
       short int  hi = -50; // h  = short (int) [“half”]
        long int  li = -50; // l  = long (int)
   long long int lli = -50; // ll = l l [okay.]
-    signed char hhi = 'S'; // hh = h h [“quarter” – `char` as a number (byte)]
+    signed char hhi = 'S'; // hh = h h [“quarter” – `char` as a number (byte)] (New in C99)
   unsigned char   c =  83; // c  = char [honor the façade]
           void*   p = &pi; // p  = pointer [more on this later]
     long double  Lf = tau; // L = long (double); assignment from existing value

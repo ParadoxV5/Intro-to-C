@@ -30,3 +30,4 @@ int main() {
     "\nintmax_t\t%" PRIuPTR "\t%" PRIiMAX "\t%" PRIiMAX "\t%" PRIuMAX,
            sizeof(intmax_t),   INTMAX_MIN,   INTMAX_MAX,  UINTMAX_MAX);
 }
+// `u`/`intmax_t` can also be `printf`/`scanf`ed with `j` as the integer length (e.g., `%jx`).
