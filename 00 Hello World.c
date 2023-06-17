@@ -9,7 +9,7 @@
 int main() { /* Main function */
   puts(HELLO);
   /* Exit code (0 = OK, not zero = error) */
-  /*return 0;*/ /* implicit `return 0` **for `main` function only** */
+  /*return 0;*/ /* implicit `return 0` __for `main` function only__ in C99+ */
 }
 
 /* More on libraries, functions, arrays and strings later. */

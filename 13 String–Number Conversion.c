@@ -29,7 +29,7 @@ int main() {
   READ
   sscanf(string, "%g", &g);
   //sprintf(buffer, "%hx\t%g\n", hx, g);
-  snprintf(string, BUFFER_SIZE, "%hx\t%g\n", hx, g);
+  snprintf(string, BUFFER_SIZE, "%hx\t%g\n", hx, g); // New in C99
   puts(string);
   
   STRATEGY("`stdlib.h` functions")
@@ -45,8 +45,7 @@ int main() {
       * 2..36
       * Bases 8 and 16 may have `0` and `0x`/`0X` prefixes respectively
       * Can also use 0 to auto detect between bases 10, 16 or 8 from the prefixes
-      * `atol` and `atoll` are equivalents for base 10
-      * `atoi` is a base-10 equivalent that returns to `int`
+      * `atol` and `atoll` are equivalents for base 10 and `NULL` 2nd arg; `atoi` returns to `int`
   */
   READ
   g = strtof(string, NULL); /*
