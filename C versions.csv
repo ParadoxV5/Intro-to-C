@@ -2,6 +2,7 @@ Year,Version,Notes
 1972,“New B”,"The OG and archaic version by Dennis M. Ritchie"
 1978,K&R C (“C78”),"THE Book published by Ritchie and B. W. Kernighan, more widespread"
 1989/1990,Standard C: ANSI C (C89) & ISO C (C90),"They are the same version from two publishers. Code comments in this repo note version differences compared to this one."
+1995,C95,"`__STDC_VERSION__` and … no much else. Thus, barely anyone talks about this."
 1999,C99,"This repo uses this version for code [CMakeLists.txt]."
 2011,C11,
 2017,C17,"No new features, only technical updates."
