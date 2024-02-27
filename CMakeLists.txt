@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.0)
+cmake_minimum_required(VERSION 3.5)
 project("Intro to C" C)
 set(CMAKE_C_STANDARD 99)
 
@@ -18,3 +18,4 @@ add_executable(12 "12 IO.c")
 add_executable(13 "13 String–Number Conversion.c")
 add_executable(14 "14 Functions.c")
 add_executable(15 "15 Error Handling.c")
+add_executable(16 "16 First-class Functions.c")
