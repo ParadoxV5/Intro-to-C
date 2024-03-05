@@ -1,12 +1,15 @@
 #include <stdio.h>
 
-// Function prototype declaration
-int write(const char* text); // arg names are optional in signatures
+/* Function prototype declaration
+  * Implementations are at the end of this file.
+  * The compiler doesn’t care about arg names in signatures.
+    They are optional and can even be different from those in the implementation (tho why’d you do that?).
+*/
+int write(const char* text);
 // `typedef` function prototype
-typedef int print_func(const char* text); // ditto
+typedef int print_func(const char* text);
 // Prototype declaration using `typedef`
 print_func write_line;
-// Implementations are at the end of this file.
 
 // Use prototype in arg and return types
 print_func* function_ception(print_func func) {
@@ -20,10 +23,11 @@ int main() {
   ASSERT_PRINTS(write("Hello "))
   ASSERT_PRINTS(write_line("from prototypes!"))
   
-  // This is a variable – the type is a pointer to a function
-  int (*speak)(const char* message) = &write; // arg names are again optional
+  // This is a variable – the type is a pointer to a function. (The compiler again doesn’t care about arg names.)
+  int (*speak)(const char* message) = &write;
   // `typedef` function pointer
-  typedef int (*print_func_ptr)(const char* message); // ditto
+  typedef int (*print_func_ptr)(const char* message);
+  
   /*
      The `&` is optional for function pointers. In fact, C autocorrects between functions and their pointers.
      All of these are valid: `write_line`, `&write_line`, `*write_line`, `**********write_line`
