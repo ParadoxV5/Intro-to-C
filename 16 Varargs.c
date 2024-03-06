@@ -1,14 +1,11 @@
-#include <stdbool.h>
 #include <stdio.h>
-#define try_puts(str) if(puts(str) < 0) return false;
 
 // `argc`+`argv` style – arrays are poor men’s varargs – except C doesn’t actually has arrays, does it?
-bool putlines_v(size_t argc, char** argv) {
+void putlines_v(size_t argc, char** argv) {
   // This example could alternatively use a {NULL} pointer to indicate the end of the array similar to Strings,
   // except arrays aren’t typically `null`-terminated but rather are of a known size.
   for(; argc; --argc) // A reminder that `size_t` is unsigned
-    try_puts(*(argv++))
-  return true;
+    puts(*(argv++));
 }
 
 // Variadic functions may be called with zero to any number of non-mandatory arguments.
@@ -16,12 +13,12 @@ bool putlines_v(size_t argc, char** argv) {
 
 #include <stdarg.h> // Functions and macros for accessing varargs
 // Varargs is how `s`/`printf` functions are implemented.
-bool putlines(size_t n, ...) {
+void putlines(size_t n, ...) {
   va_list args; // Declare the VarArgs object, which holds information to track the vararg traversal.
   va_start(args, n); // Prepare; the `n` informs C the last mandatory arg, after which are the varargs (unused in C23)
   // This example too can use {NULL}-terminate varargs, but until C23, there must be at least one mandatory arg anyways.
   for(; n; --n)
-    try_puts(va_arg(args, char*)) // Query an `arg` from the list given then (expected) type (size)
+    puts(va_arg(args, char*)); // Query an `arg` from the list given then (expected) type (size)
     // Caution: varargs can only read values of type `int`, `double` or larger.
   /*
     While `va_list`s can be passed to other functions,
@@ -29,7 +26,6 @@ bool putlines(size_t n, ...) {
     Also in C99: `va_copy`: Dup the varargs object – important because `va_list`s are single-use only (wherever it is).
   */
   va_end(args); // GC the VarArgs data
-  return true;
 }
 
 /*
@@ -47,13 +43,9 @@ bool putlines(size_t n, ...) {
   This also opens the freedom to leave unused args unnamed.
 */
 int main(void) {
-  char error = 0;
   char* from = "from";
   // call `argc`+`argv` function with C99 compound literal
-  if(!putlines_v(4, (char*[4]){"Hello", from, "array!", ""}))
-    error |= 0b00010000;
+  putlines_v(4, (char*[4]){"Hello", from, "array!", ""});
   // call vararg functions just like regular functions
-  if(!putlines(3, "Hello again", from, "varargs!!"))
-    error |= 0b01000000;
-  return error;
+  putlines(3, "Hello again", from, "varargs!!");
 }

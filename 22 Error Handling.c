@@ -36,7 +36,6 @@ errno_t exp2l_s(long* number) {
 }
 
 #include <stdlib.h>
-#include <inttypes.h>
 #include <stdio.h>
 int main() {
   

@@ -17,6 +17,7 @@ print_func* function_ception(print_func func) {
 }
 
 int main() {
+  // `stdio.h` output functions return negative numbers upon error
   #define ASSERT_PRINTS(call) if(call < 0) return 1;
   
   // Functions are usable via their declarations regardless where they are defined.
