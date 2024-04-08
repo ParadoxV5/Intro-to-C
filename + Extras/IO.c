@@ -25,7 +25,7 @@ int main() {
   // Read until '\n'
   for(int_fast8_t i = 0; c != '\n'; ++i) {
     c = (char)getchar(); // returns is signed int to accommodate EOF (which is -1 in some platforms)
-    if(i < 10)  // Only store until 10 length
+    if(i < 10) // Only store until 10 length
       string[i] = c;
   }
   // Write until '\0'

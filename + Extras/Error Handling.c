@@ -54,8 +54,8 @@ int main() {
   
   // Most of standard library use the `int` (behind the macro) `errno` for reporting errors.
   if(errno == ERANGE) {
-    fputs("Your input is *way* too long.\n", stderr); //XXX: EDOM
-    return errno;
+    fputs("Your input is *way* too long.\n", stderr);
+    return EDOM;
   }
   
   /*

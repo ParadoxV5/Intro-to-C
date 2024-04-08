@@ -19,7 +19,7 @@ int main() {
       //table[0][i]
       (*table)[i]
       //*((*table)+i)
-    ); 
+    );
   puts("]"); //=> [ 8 7 6 5 4 3 2 1 0 ]
   
   // Sub-indexing and Endianness

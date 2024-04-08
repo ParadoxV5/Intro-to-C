@@ -50,7 +50,7 @@ int main() {
 
   // `printf` is generally consistent with Java and Ruby. Special ones noted below:
             int   i = -50;
-            int   d =  50; // `d` is equivalent to `i` for the `printf` family. 
+            int   d =  50; // `d` is equivalent to `i` for the `printf` family.
    unsigned int   u = -50; // u  = unsigned [note no i]; note the implicit underflow (-5 => INT_MAX - 4)
       short int  hi = -50; // h  = short (int) [“half”]
        long int  li = -50; // l  = long (int)

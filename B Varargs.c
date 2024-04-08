@@ -2,7 +2,7 @@
 
 // `argc`+`argv` style – arrays are poor men’s varargs – except C doesn’t actually has arrays, does it?
 void putlines_v(size_t argc, char** argv) {
-  // This example could alternatively use a {NULL} pointer to indicate the end of the array similar to Strings,
+  // This example could alternatively use a `NULL` pointer to indicate the end of the array similar to Strings,
   // except arrays aren’t typically `null`-terminated but rather are of a known size.
   for(; argc; --argc) // A reminder that `size_t` is unsigned
     puts(*(argv++));
@@ -16,13 +16,13 @@ void putlines_v(size_t argc, char** argv) {
 void putlines(size_t n, ...) {
   va_list args; // Declare the VarArgs object, which holds information to track the vararg traversal.
   va_start(args, n); // Prepare; the `n` informs C the last mandatory arg, after which are the varargs (unused in C23)
-  // This example too can use {NULL}-terminate varargs, but until C23, there must be at least one mandatory arg anyways.
+  // This example too can use `NULL`-terminate varargs, but until C23, there must be at least one mandatory arg anyways.
   for(; n; --n)
     puts(va_arg(args, char*)); // Query an `arg` from the list given then (expected) type (size)
     // Caution: varargs can only read values of type `int`, `double` or larger.
   /*
     While `va_list`s can be passed to other functions,
-    `va_start` and `va_end` must be within the function the `va_list` is for. 
+    `va_start` and `va_end` must be within the function the `va_list` is for.
     Also in C99: `va_copy`: Dup the varargs object – important because `va_list`s are single-use only (wherever it is).
   */
   va_end(args); // GC the VarArgs data

@@ -103,5 +103,5 @@ int main() {
     printf("%02"PRIxFAST8" ", full_name[i]);
 }
 
-// * strerror(errno): Get error message for errno: 
+// * strerror(errno): Get error message for errno:
 // … and more

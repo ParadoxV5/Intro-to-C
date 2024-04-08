@@ -69,7 +69,7 @@ int main(int argc, char* argv[]) {
     int number = atoi(input);
     if(!square2(&number)) { // Pass by Reference
       printf("The square of your number is (%i)\n", number);
-      return EXIT_SUCCESS; // `0` and `EXIT_SUCCESS` (which may be `0` anyhow) means no errors. 
+      return EXIT_SUCCESS; // `0` and `EXIT_SUCCESS` (which may be `0` anyhow) means no errors.
     }
   }
   puts("Your input exceeds range.");
