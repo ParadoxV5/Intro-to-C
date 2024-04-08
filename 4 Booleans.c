@@ -16,7 +16,7 @@
 
 int main() {
   // `_Bool` is a __C99+__ integer type`. It can only hold 1 or 0 and automatically convert any non-0 to 1.
-  printf("sizeof(_Bool) \t%"PRIuPTR"\n", sizeof(_Bool));
+  printf("sizeof(_Bool) \t%zu\n", sizeof(_Bool));
   
   /*`stdbool.h` `#define`s:
     bool  _Bool

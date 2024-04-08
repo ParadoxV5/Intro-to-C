@@ -23,11 +23,11 @@ const uint64_t HEX = UINT64_C(0xFEDCBA9876543210);
   | ` `/`u` `int_fast#_t`  | `PRI`/`SCN` `@FAST#`         |
   | ` `/`u` `intmax_t`     | `PRI`/`SCN` `@MAX`           |
   | ` `/`u` `intptr_t`     | `PRI`/`SCN` `@PTR`           |
+  `u`/`intmax_t` can also be `printf`/`scanf`ed with `j` as the integer length (e.g., `%jx`).
 */
 int main() {
   printf("%"PRIi64, HEX); // String literal concatenation: "Hello"", " "World""!" => "Hello, World!"
   printf(
-    "\nintmax_t\t%" PRIuPTR "\t%" PRIiMAX "\t%" PRIiMAX "\t%" PRIuMAX,
-           sizeof(intmax_t),   INTMAX_MIN,   INTMAX_MAX,  UINTMAX_MAX);
+    "\nintmax_t\t%zu\t%" PRIiMAX "\t%" PRIiMAX "\t%" PRIuMAX,
+    sizeof(intmax_t), INTMAX_MIN,   INTMAX_MAX,  UINTMAX_MAX);
 }
-// `u`/`intmax_t` can also be `printf`/`scanf`ed with `j` as the integer length (e.g., `%jx`).

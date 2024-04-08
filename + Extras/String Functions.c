@@ -86,7 +86,7 @@ int main() {
   
   // Length
   printf(
-    "%"PRIuPTR" bytes used out of %"PRIuPTR" bytes\n",
+    "%zu bytes used out of %zu bytes\n",
     strlen(full_name),
     sizeof(full_name) - 1
   );

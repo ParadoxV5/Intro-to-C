@@ -21,7 +21,7 @@ int main() {
   printf("Address Value:\ta_myInt=%"PRIuPTR"\n", a_myInt);
   
   const size_t PTR_BYTES = sizeof(void*); // void = no idea about the return; void* = no idea about the pointer contents
-  printf("\nPointer Size is %"PRIuPTR": I am running on a %"PRIuMAX"-bit computer.\n\n", PTR_BYTES, PTR_BYTES * 8);
+  printf("\nPointer Size is %zu: I am running on a %"PRIuMAX"-bit computer.\n\n", PTR_BYTES, PTR_BYTES * 8);
   
   printf("Write via variable\t");
   ++myInt;

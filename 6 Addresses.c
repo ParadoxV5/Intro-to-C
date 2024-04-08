@@ -29,10 +29,10 @@ int main() {
   
   // TSV
   puts("POINTERS\t`sizeof`\tGlobal\tFile\tLocal\tHeap");
-  printf("char\t%" PRIuPTR"\t%p\t%p\t%p\t%p\n", sizeof(char ), &gc, &fc, &lc, pc);
-  printf("short\t%"PRIuPTR"\t%p\t%p\t%p\t%p\n", sizeof(short), &gs, &fs, &ls, ps);
-  printf("int\t%"  PRIuPTR"\t%p\t%p\t%p\t%p\n", sizeof(int  ), &gi, &fi, &li, pi);
-  printf("long\t%" PRIuPTR"\t%p\t%p\t%p\t%p\n", sizeof(long ), &gl, &fl, &ll, pl);
+  printf("char \t%zu\t%p\t%p\t%p\t%p\n", sizeof(char ), &gc, &fc, &lc, pc);
+  printf("short\t%zu\t%p\t%p\t%p\t%p\n", sizeof(short), &gs, &fs, &ls, ps);
+  printf("int  \t%zu\t%p\t%p\t%p\t%p\n", sizeof(int  ), &gi, &fi, &li, pi);
+  printf("long \t%zu\t%p\t%p\t%p\t%p\n", sizeof(long ), &gl, &fl, &ll, pl);
   
   // Free the Heap
   free(pc);
