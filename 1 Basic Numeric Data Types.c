@@ -64,9 +64,11 @@ int main() {
   unsigned char   c =  83; // c  = char [honor the façade]
           void*   p = &pi; // p  = pointer [more on this later]
     long double  Lf = tau; // L = long (double); assignment from existing value
+         double  lf =   e; // l = long (float); optional (but funny) (new in C99)
           size_t zi = sizeof(size_t); // z = si`z`e; assignment from expression
   printf(
-    "\nprintf\ni=%i\td=%d\tu=%u\thi=%hi\tli=%li\tlli=%lli\thhi=%hhi\tc=%c\tp=%p\tLf=%Lf\tzi=%zi\n",
-               i,    d,    u,    hi,     li,     lli,      hhi,      c,    p,    Lf,     zi
+    "\nprintf\ni=%i\td=%d\tu=%u\thi=%hi\tli=%li\tlli=%lli\thhi=%hhi\tc=%c\tp=%p\tLf=%Lf\tlf=%lf\tzi=%zi\n",
+               i,    d,    u,    hi,     li,     lli,      hhi,      c,    p,    Lf,     lf,     zi
   );
+  // In practice, varargs are auto-promoted to at least `int` or `double`, so `h`s and `lf` are pedantic.
 }
